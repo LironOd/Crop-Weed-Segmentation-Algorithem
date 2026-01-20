@@ -34,15 +34,15 @@ We utilize the **Amiran / Lincoln Beet Dataset** (via Kaggle) to simulate real-w
 - Object extraction via contour analysis  
 
 ### Deep Learning Approach (YOLO Segmentation)
-Stage A — Baseline (YOLO Nano): Trained YOLO11n-seg for 50 epochs on raw data (no balancing) → mAP50 = 0.56.
+**Stage A** — Baseline (YOLO Nano): Trained YOLO11n-seg for 50 epochs on raw data (no balancing) → mAP50 = 0.56.
 
 Failure analysis: Model detected only Weed and ignored Sugar Beet due to an XML→YOLO class-mapping mismatch, effectively training on one class.
 
-Stage B — Fixed + Rebalanced (YOLO Medium): Fixed conversion script + rebalance to ~40:60 → trained YOLO11m-seg for up to 100 epochs with early stopping → mAP50 = 0.734.
+**Stage B** — Fixed + Rebalanced (YOLO Medium): Fixed conversion script + rebalance to ~40:60 → trained YOLO11m-seg for up to 100 epochs with early stopping → mAP50 = 0.734.
 
 Observation: Training stopped at epoch 27 (low patience), suggesting mild underfitting and need for stronger regularization/augmentation.
 
-Stage C — Final Optimized (YOLO Large): Trained YOLO11l-seg with 960×960 input resolution + geometric augmentations → best performance: mAP50 = 0.782, Precision = 0.794.
+**Stage C** — Final Optimized (YOLO Large): Trained YOLO11l-seg with 960×960 input resolution + geometric augmentations → best performance: mAP50 = 0.782, Precision = 0.794.
 
 Generalization: Very small train–val gap (~0.39%), indicating strong stability and no clear overfitting.
  
