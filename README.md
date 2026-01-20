@@ -16,14 +16,15 @@ We compared two methods to find the best and most efficient solution  :
 
 ## Dataset
 
-We use the **Amiran / Lincoln beet dataset** from Kaggle, consisting of **4,402 RGB field images** with annotated weed and sugar beet plants. :contentReference[oaicite:0]{index=0}  
-Each image includes **object detection labels (bounding boxes)** for two classes: **sugar beet (crop)** and **weed**. :contentReference[oaicite:1]{index=1}  
-Image resolution is typically **1920×1080**, captured under real outdoor agricultural conditions.  
-No pixel-level segmentation ground truth is provided.  
-Bounding boxes are converted into **rectangular polygons** for segmentation training.  
-The dataset challenges models with **high visual similarity** between crops and weeds.  
-Used for both classical image processing evaluation and YOLO segmentation experiments.  
-Insights benefit precision agriculture tasks such as weed control and automated crop monitoring.
+## 📂 Dataset
+We utilize the **Amiran / Lincoln Beet Dataset** (via Kaggle) to simulate real-world precision agriculture tasks.
+
+* **Scale:** 4,402 RGB images captured in outdoor field conditions.
+* **Resolution:** High-definition (typically 1920×1080).
+* **Classes:** `Sugar Beet` (Crop) vs. `Weed`.
+* **Preprocessing:** Since raw pixel-level masks were unavailable, original bounding box annotations were converted into **rectangular polygons** to enable segmentation training.
+* **Key Challenge:** High visual similarity between crops and weeds under variable lighting.
+* **Usage:** Serves as the benchmark for comparing our Classical CV approach vs. YOLOv11 segmentation.
 
 ## Methodology
 ### Classical Segmentation Approach
